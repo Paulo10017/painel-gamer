@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXUS Gamer</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#06101d;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:24px;color:#20e7ff}
+main{max-width:400px;margin:auto;padding:16px}
+.panel{background:#0d2033;border:1px solid #20e7ff;border-radius:16px;padding:18px;box-shadow:0 0 18px #00d9ff22}
+button{width:100%;padding:14px;margin:9px 0;border:1px solid #20e7ff;border-radius:10px;background:#102c43;color:white;font-size:16px}
+button.active{background:#07566b}
+small{color:#a4b9ca}
+.bar{height:12px;background:#26384b;border-radius:8px;overflow:hidden}
+.fill{height:100%;width:80%;background:#44f0a3}
+.cross{text-align:center;font-size:48px;color:#20e7ff;margin:20px}
+</style>
+</head>
+<body>
+<header><h1>⚡ NEXUS GAMER ⚡</h1><small>Painel visual demonstrativo</small></header>
+<main><section class="panel">
+<h2>Meu painel</h2>
+<button class="active" onclick="toggle(this,'alvo')">ESP visual: ON</button>
+<div id="alvo">◇ JOGADOR DE TESTE</div>
+<button class="active" onclick="toggle(this,'vida')">Barra de vida: ON</button>
+<div id="vida" class="bar"><div class="fill"></div></div>
+<button class="active" onclick="toggle(this,'mira')">Mira visual: ON</button>
+<div id="mira" class="cross">＋</div>
+<small>Demo visual: não modifica nem interage com o Roblox.</small>
+</section></main>
+<script>
+function toggle(btn,id){
+const el=document.getElementById(id);
+const on=el.hidden;
+el.hidden=!on;
+btn.classList.toggle('active',on);
+btn.textContent=btn.textContent.replace(on?'OFF':'ON',on?'ON':'OFF');
+}
+</script>
+</body>
+</html>
