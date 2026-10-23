@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel Gamer Neon</title>
+<style>
+body {
+  margin: 0;
+  background: #07111f;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+header {
+  text-align: center;
+  padding: 25px 10px;
+  color: #20e7ff;
+}
+main {
+  max-width: 400px;
+  margin: auto;
+  padding: 15px;
+}
+.painel {
+  background: #0c1b2d;
+  border: 1px solid #20e7ff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 0 20px #00d9ff33;
+}
+button {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 14px;
+  border: 1px solid #20e7ff;
+  border-radius: 10px;
+  background: #102a40;
+  color: white;
+  font-size: 16px;
+}
+button.ativo {
+  background: #07566b;
+}
+.mira {
+  margin: 35px auto;
+  text-align: center;
+  color: #20e7ff;
+  font-size: 45px;
+}
+.barra {
+  height: 12px;
+  background: #26384b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.vida {
+  width: 80%;
+  height: 100%;
+  background: #44f0a3;
+}
+small {
+  color: #91a9bd;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚡ NEXUS UI ⚡</h1>
+  <small>Painel de demonstração</small>
+</header>
+<main>
+  <section class="painel">
+    <h2>Controles</h2>
+    <button id="esp" class="ativo"
+      onclick="alternar('esp')">ESP demonstrativo: ON</button>
+    <div id="alvo">
+      <p>◇ JOGADOR DE TESTE</p>
+    </div>
+    <button id="vidaBtn" class="ativo"
+      onclick="alternar('vidaBtn')">Barra de vida: ON</button>
+    <div id="barra" class="barra">
+      <div class="vida"></div>
+    </div>
+    <button id="miraBtn" class="ativo"
+      onclick="alternar('miraBtn')">Mira visual: ON</button>
+    <div id="mira" class="mira">＋</div>
+    <button onclick="location.reload()">Reiniciar painel</button>
+    <small>Interface visual local. Não altera o Roblox.</small>
+  </section>
+</main>
+<script>
+function alternar(id) {
+  const b = document.getElementById(id);
+  const ligado = b.classList.toggle('ativo');
+  b.textContent = b.textContent.replace(
+    ligado ? 'OFF' : 'ON',
+    ligado ? 'ON' : 'OFF'
+  );
+  if (id === 'esp')
+    document.getElementById('alvo').hidden = !ligado;
+  if (id === 'vidaBtn')
+    document.getElementById('barra').hidden = !ligado;
+  if (id === 'miraBtn')
+    document.getElementById('mira').hidden = !ligado;
+}
+</script>
+</body>
+</html>
